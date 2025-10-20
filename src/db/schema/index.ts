@@ -1,4 +1,1 @@
-// Database schema exports
-// Add your Drizzle schema definitions here
-
-export {};
+export * from "../../modules/todo/todo.model";

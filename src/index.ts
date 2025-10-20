@@ -1,10 +1,10 @@
-import "dotenv/config";
 import { cors } from "@elysiajs/cors";
 import { fromTypes, openapi } from "@elysiajs/openapi";
 import { Elysia } from "elysia";
 import logixlysia from "logixlysia";
 import z from "zod";
 import { env } from "./env";
+import { todoModule } from "./modules/todo";
 
 const app = new Elysia({ name: "elysia-template" })
   .use(logixlysia({
@@ -39,6 +39,7 @@ const app = new Elysia({ name: "elysia-template" })
       },
     })
   )
+  .use(todoModule)
   .get("/", () => "OK")
   .get("/health", () => ({
     status: "healthy",
